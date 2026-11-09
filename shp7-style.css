@@ -1,0 +1,8 @@
+/* BlitzWolf SHP7 ESPHome Web Server v3
+   Dark purple page background
+*/
+
+html,
+body {
+  background: #160d20 !important;
+}
