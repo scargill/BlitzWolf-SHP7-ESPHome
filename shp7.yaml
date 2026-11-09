@@ -329,8 +329,20 @@ sensor:
       name: "SHP7 Voltage"
       unit_of_measurement: V
       accuracy_decimals: 1
+      id: shp7_voltage
       web_server:
         sorting_weight: 6
+      on_value:
+        then:
+          - lambda: |-
+              const float limit = id(minimum_voltage_limit).state;
+              if (limit > 0 && x < limit) {
+                if (id(relay1).state || id(relay2).state) {
+                  ESP_LOGW("protection", "Voltage %.1f V below minimum %.1f V. Switching both sockets off.", x, limit);
+                  id(relay1).turn_off();
+                  id(relay2).turn_off();
+                }
+              }
 
     power:
       name: "SHP7 Power"
@@ -339,6 +351,17 @@ sensor:
       id: shp7_power
       web_server:
         sorting_weight: 5
+      on_value:
+        then:
+          - lambda: |-
+              const float limit = id(maximum_power_limit).state;
+              if (limit > 0 && x > limit) {
+                if (id(relay1).state || id(relay2).state) {
+                  ESP_LOGW("protection", "Combined power %.1f W exceeded limit %.1f W. Switching both sockets off.", x, limit);
+                  id(relay1).turn_off();
+                  id(relay2).turn_off();
+                }
+              }
 
     energy:
       name: "SHP7 Energy"
@@ -382,6 +405,30 @@ number:
     max_value: 1440
     step: 1
     unit_of_measurement: min
+    mode: box
+
+  - platform: template
+    name: "Maximum Power Limit"
+    id: maximum_power_limit
+    optimistic: true
+    restore_value: true
+    initial_value: 0
+    min_value: 0
+    max_value: 3680
+    step: 10
+    unit_of_measurement: W
+    mode: box
+
+  - platform: template
+    name: "Minimum Voltage Limit"
+    id: minimum_voltage_limit
+    optimistic: true
+    restore_value: true
+    initial_value: 0
+    min_value: 0
+    max_value: 260
+    step: 1
+    unit_of_measurement: V
     mode: box
 
 script:
