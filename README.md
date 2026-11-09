@@ -1,2 +1,57 @@
-# BlitzWolf-SHP7-ESPHome
-A repository containing the firmware configuration, CSS theme and setup instructions
+# BlitzWolf SHP7 – ESPHome Configuration
+
+ESPHome configuration and custom styling for the BlitzWolf SHP7 dual-socket smart plug.
+
+## Prerequisite
+
+**This configuration is intended for a BlitzWolf SHP7 that has already been converted to Tasmota.**
+
+If your SHP7 is still running its original factory firmware, you must first convert it to Tasmota. This repository covers the subsequent conversion from Tasmota to ESPHome only.
+
+## Features
+
+- Independent control of both sockets
+- Power, voltage, current and energy monitoring
+- Configurable power-on behaviour
+- Automatic socket shut-off timers
+- Physical button control
+- ESPHome Web Server v3
+- Custom dark purple WebUI background
+- Wi-Fi signal and uptime diagnostics
+
+## Files
+
+| File | Description |
+|---|---|
+| `shp7.yaml` | ESPHome firmware configuration |
+| `shp7-style.css` | Custom WebUI background styling |
+| `README.md` | Project documentation |
+
+## Installation
+
+### ESPHome Configuration
+
+1. Download `shp7.yaml`.
+2. Add it to your ESPHome configuration directory.
+3. Configure your Wi-Fi credentials.
+4. Compile and install the firmware using ESPHome.
+
+### Custom CSS
+
+1. Download `shp7-style.css`.
+2. Place the file in your Home Assistant `/config/www/` directory.
+3. Configure the ESPHome Web Server CSS URL as:
+
+   `http://YOUR_HOME_ASSISTANT_IP:8123/local/shp7-style.css`
+
+Replace `YOUR_HOME_ASSISTANT_IP` with the IP address of your Home Assistant installation.
+
+The stylesheet changes the WebUI page background colour. ESPHome's internal controls are not currently customised by the stylesheet.
+
+## Disclaimer
+
+This configuration is provided as-is. Use at your own risk. Always ensure the device is safely installed and suitable for the electrical load being controlled.
+
+## Project
+
+Personal ESPHome project for the BlitzWolf SHP7 dual-socket smart plug.
