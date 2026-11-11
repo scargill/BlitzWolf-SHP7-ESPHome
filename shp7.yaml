@@ -5,7 +5,7 @@ substitutions:
   device_name: shp7
   current_res: "0.002291"
   version: "1.2"
-  voltage_div: "994"
+  voltage_div: "960"
 
 esphome:
   name: ${device_name}
@@ -94,7 +94,8 @@ web_server:
   port: 80
   version: 3
   log: false
-  css_url: "http://192.168.1.20:8123/local/shp7-style.css"
+  css_include: shp7_custom_styles.css
+  js_include: shp7_custom_styles.js
 
 time:
   - platform: sntp
