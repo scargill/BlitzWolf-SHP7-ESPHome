@@ -16,7 +16,7 @@ If your SHP7 is still running its original factory firmware, you must first conv
 - Automatic socket shut-off timers
 - Physical button control
 - ESPHome Web Server v3
-- Custom dark purple WebUI background
+- Custom background, text, borders, button colours and more
 - Wi-Fi signal and uptime diagnostics
 
 ## Files
