@@ -1,0 +1,6 @@
+/* Change the primary background and text colors */
+body {
+  background-color: #221232 !important;
+  color: #e4aca8 !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
