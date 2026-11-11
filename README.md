@@ -36,17 +36,23 @@ If your SHP7 is still running its original factory firmware, you must first conv
 3. Configure your Wi-Fi credentials.
 4. Compile and install the firmware using ESPHome.
 
-### Custom CSS
+### Custom CSS and js files
 
-1. Download `shp7-style.css`.
-2. Place the file in your Home Assistant `/config/www/` directory.
+1. Download `shp7_custom_styles.css`.
+2. Place the file in your Home Assistant `/config/esphome/` directory.
 3. Configure the ESPHome Web Server CSS URL as:
 
-   `http://YOUR_HOME_ASSISTANT_IP:8123/local/shp7-style.css`
+   `http://YOUR_HOME_ASSISTANT_IP:8123/local/shp7_custom_styles.css
+   `
+5. Download `shp7_custom_styles.js`.
+6. Place the file in your Home Assistant `/config/esphome/` directory.
+7. Configure the ESPHome Web Server JS URL as:
+
+   `http://YOUR_HOME_ASSISTANT_IP:8123/local/shp7_custom_styles.js`
 
 Replace `YOUR_HOME_ASSISTANT_IP` with the IP address of your Home Assistant installation.
 
-The stylesheet changes the WebUI page background colour. ESPHome's internal controls are not currently customised by the stylesheet.
+The stylesheet changes the WebUI background and main text colours. ESPHome's internal controls are not currently customised by the stylesheet - the .js file does that.
 
 ## Disclaimer
 
